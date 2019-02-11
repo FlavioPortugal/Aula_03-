@@ -1,0 +1,23 @@
+package br.com.fiap.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TB_PASTEL")//Não é obrigatório, altera o nome da tabela
+@SequenceGenerator(name="pastel", sequenceName="SQ_TB_PASTEL")
+ public class Pastel {
+	@Id
+	@GeneratedValue(generator="pastel",strategy=GenerationType.SEQUENCE)	
+	private int codigo;
+	private String sabor;
+	private float preco;
+	private boolean especial;
+	private Massa massa;
+	
+
+}

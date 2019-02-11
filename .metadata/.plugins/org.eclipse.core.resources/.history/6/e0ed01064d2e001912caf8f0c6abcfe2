@@ -1,0 +1,32 @@
+package br.com.fiap.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_PASTEL") // Não é obrigatório, altera o nome da tabela
+// name: nome no java(generator),
+// sequenceName: nome no banco,
+// 0allocationSize : passo(de um em um)
+@SequenceGenerator(name = "pastel", sequenceName = "SQ_TB_PASTEL", allocationSize = 1)
+public class Pastel {
+	@Id
+	@GeneratedValue(generator = "pastel", strategy = GenerationType.SEQUENCE)
+	private int codigo;
+
+	@Column(name = "ds_sabor", nullable = false, length = 50)
+	private String sabor;
+
+	@Column(name = "vl_pastel", nullable = false)
+	private float preco;
+
+	@Column(name = "is_especial", nullable = false)
+	private boolean especial;
+	private Massa massa;
+
+}

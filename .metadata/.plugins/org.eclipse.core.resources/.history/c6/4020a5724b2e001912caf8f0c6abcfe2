@@ -1,0 +1,15 @@
+package br.com.fiap.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+ public class Pastel {
+	
+	private int id;
+	private String sabor;
+	private float preco;
+	private boolean especial;
+	private Massa massa;
+	
+
+}
