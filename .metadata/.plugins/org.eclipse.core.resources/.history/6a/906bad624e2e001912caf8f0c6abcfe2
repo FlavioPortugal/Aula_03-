@@ -4,8 +4,6 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,19 +37,18 @@ public class Pastel {
 	private boolean especial;
 
 	@Column(name = "ds_massa")
-	@Enumerated(EnumType.STRING) // grava a constante no banco e não a ordem
 	private Massa massa;
 
 	@CreationTimestamp // gera a data de cadastro automáticamente
 	private Calendar dataCadastro;
-
-	@Temporal(TemporalType.TIMESTAMP) // data e as horas
+	
+	@Temporal(TemporalType.TIMESTAMP)//data e as horas
 	private Calendar dataPedido;
 
 	@Transient // Não será uma coluna na tabela no banco de dados
 	private int numeroComanda;
-
-	@Lob // arquivos e fotos
-	private byte[] foto;
+	
+	@Lob// arquivos e fotos
+	private byte[]foto;
 
 }
